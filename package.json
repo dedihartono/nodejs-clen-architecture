@@ -1,6 +1,6 @@
 {
   "name": "nodejs-clen-architecture",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "starting pack nodejs express using clean architecture",
   "main": "src/index.ts",
   "scripts": {
