@@ -21,10 +21,12 @@ export class MySQLCatDataSource implements CatDataSource {
 
   async getAll(): Promise<CatResponseModel[]> {
     const dbResponse = await this.db.query(`select * from ${DB_TABLE}`);
-    const result = dbResponse.rows.map((item: any) => ({
-      id: item.id,
-      name: item.name,
-    }));
+    const result = (dbResponse.rows as { id: string; name: string }[]).map(
+      (item) => ({
+        id: item.id,
+        name: item.name,
+      }),
+    );
     return result;
   }
 
@@ -44,11 +46,12 @@ export class MySQLCatDataSource implements CatDataSource {
       `select * from ${DB_TABLE} where id = $1 limit 1`,
       [id],
     );
-    const result = dbResponse.rows.map((item: any) => ({
-      id: item.id,
-      name: item.name,
-    }));
-
+    const result = (dbResponse.rows as { id: string; name: string }[]).map(
+      (item) => ({
+        id: item.id,
+        name: item.name,
+      }),
+    );
     return result[0];
   }
 }

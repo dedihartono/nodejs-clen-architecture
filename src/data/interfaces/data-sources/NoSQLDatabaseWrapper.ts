@@ -1,6 +1,6 @@
 export interface NoSQLDatabaseWrapper {
-  find: (query: object) => Promise<any[]>;
-  insertOne: (doc: any) => void;
+  find: (query: object) => Promise<object[]>;
+  insertOne: (data: object) => void;
   deleteOne: (id: string) => void;
   updateOne: (id: string, data: object) => void;
 }
