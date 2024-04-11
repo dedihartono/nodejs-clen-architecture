@@ -1,6 +1,3 @@
 export interface SQLDatabaseWrapper {
-  query: (
-    querystring: string,
-    queryConfig?: any[],
-  ) => Promise<{ rows: object[] }>;
+  query: (querystring: string, queryConfig?: string[]) => Promise<{ rows: [] }>;
 }
